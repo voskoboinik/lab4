@@ -6,308 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Joyify - Лендинг Продукта</title>
-    <!-- Подключение Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Для иконок (если нужны) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Общие стили */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Главный экран (Hero Section) с градиентом */
-        .hero {
-            background: linear-gradient(to right, #4a90e2, #8e44ad); /* Обновленный градиент */
-            color: #ffffff;
-            padding: 100px 0;
-            text-align: center;
-            border-bottom: 5px solid #007bb5;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: #ffffff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            margin-bottom: 30px;
-        }
-
-        .hero .btn-primary {
-            background-color: #ff6f61; /* Теплый розовый */
-            border-color: #ff6f61;
-            padding: 12px 35px;
-            font-size: 1.2rem;
-            border-radius: 30px;
-            transition: background-color 0.3s;
-        }
-
-        .hero .btn-primary:hover {
-            background-color: #e14d3b;
-            border-color: #e14d3b;
-        }
-
-        /* Секция с описанием (About) */
-        .about {
-            background-color: #f0f8ff; /* Светло-голубой фон */
-            padding: 60px 0;
-            text-align: center;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 25px;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Карточки */
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            height: 400px; /* Фиксированная высота для всех карточек */
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-body {
-            padding: 25px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Чтобы содержимое карточки было равномерно распределено */
-        }
-
-        .card-body img {
-            max-width: 100%;
-            height: 200px; /* Фиксированная высота для всех изображений */
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .card-body i {
-            font-size: 3.5rem;
-            color: #007bb5;
-            margin-bottom: 20px;
-        }
-
-        .card-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .card-text {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-        }
-
-        /* Секция с преимуществами */
-        .benefits {
-            background-color: #f9f9f9;
-            padding: 80px 0;
-        }
-
-        .benefits .container {
-            max-width: 1200px;
-        }
-
-        .benefits h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #333;
-        }
-
-        .row {
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Футер */
-        footer {
-            background-color: #263238; /* Темный цвет для футера */
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #ff6f61;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #f39c12;
-            text-decoration: underline;
-        }
-
-        /* Мобильная версия */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .card-body img {
-                height: 150px;
-            }
-
-            .card-title {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-100 font-sans text-gray-900">
+
     <!-- Навигационная панель -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Joyify</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">О нас</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Контакты</a>
-                    </li>
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">Joyify</a>
+            <div>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-600">Главная</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-600">О нас</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-indigo-600">Контакты</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Главный экран (Hero Section) с новым фоном -->
-    <header class="hero">
-        <div class="container">
-            <h1>Давайте творить чудеса вместе с Joyify!</h1>
-            <p>Наш продукт делает жизнь ярче и веселее! Присоединяйтесь и создайте свой мир без ограничений.</p>
-            <a href="#" class="btn btn-primary btn-lg">Узнать больше</a>
+    <!-- Главный экран (Hero Section) -->
+    <header class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-24 text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Давайте творить чудеса с Joyify!
+            </h1>
+            <p class="text-lg md:text-xl mb-6">Наш продукт делает жизнь ярче и веселее. Присоединяйтесь к нам и создайте свой мир без ограничений!</p>
+            <a href="#" class="bg-pink-500 hover:bg-pink-400 text-white px-6 py-3 rounded-full text-lg">Узнать больше</a>
         </div>
     </header>
 
-    <!-- Секция с описанием (About) -->
-    <section class="about">
-        <div class="container">
-            <h2>Что мы предлагаем?</h2>
-            <p>Joyify — это не просто решение для бизнеса, это способ сделать вашу жизнь ярче и проще. Мы разработали его с любовью к каждому пользователю, чтобы каждый день был легким и радостным.</p>
+    <!-- Секция с описанием -->
+    <section class="bg-white py-20 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Что такое Joyify?</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Joyify — это инновационное решение, которое сделает вашу жизнь ярче, проще и веселее. Мы создали наш продукт с любовью, чтобы каждый день был особенным и радостным. 
+            </p>
         </div>
     </section>
 
     <!-- Секция с преимуществами -->
-    <section class="benefits">
-        <div class="container">
-            <h2>Почему стоит выбрать Joyify?</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="1.jpg" alt="Простота"> <!-- Замените на свой путь -->
-                            <i class="fas fa-thumbs-up"></i>
-                            <h5 class="card-title">Простота</h5>
-                            <p class="card-text">Наш продукт легко интегрируется в вашу жизнь и помогает вам делать все быстрее и удобнее.</p>
-                        </div>
-                    </div>
+    <section class="bg-gray-50 py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-12">Почему стоит выбрать Joyify?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Карточка 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="1.jpg" alt="Простота" class="w-full h-40 object-cover rounded-md mb-4">
+                    <i class="fas fa-thumbs-up text-indigo-600 text-3xl mb-4"></i>
+                    <h5 class="text-2xl font-semibold text-gray-800 mb-2">Простота</h5>
+                    <p class="text-gray-600">Наш продукт легко интегрируется в вашу жизнь и помогает вам делать все быстрее и удобнее.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="2.jpg" alt="Энергия"> <!-- Замените на свой путь -->
-                            <i class="fas fa-bolt"></i>
-                            <h5 class="card-title">Энергия</h5>
-                            <p class="card-text">Наши решения полны энергии, как заряд бодрости, они помогут вам достигать цели с легкостью.</p>
-                        </div>
-                    </div>
+                <!-- Карточка 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="2.jpg" alt="Энергия" class="w-full h-40 object-cover rounded-md mb-4">
+                    <i class="fas fa-bolt text-indigo-600 text-3xl mb-4"></i>
+                    <h5 class="text-2xl font-semibold text-gray-800 mb-2">Энергия</h5>
+                    <p class="text-gray-600">Наши решения полны энергии, как заряд бодрости, они помогут вам достигать цели с легкостью.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="3.jpg" alt="Дружелюбие"> <!-- Замените на свой путь -->
-                            <i class="fas fa-heart"></i>
-                            <h5 class="card-title">Дружелюбие</h5>
-                            <p class="card-text">Мы ставим людей на первое место. Наши решения максимально удобны и ориентированы на пользователя.</p>
-                        </div>
-                    </div>
+                <!-- Карточка 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="3.jpg" alt="Дружелюбие" class="w-full h-40 object-cover rounded-md mb-4">
+                    <i class="fas fa-heart text-indigo-600 text-3xl mb-4"></i>
+                    <h5 class="text-2xl font-semibold text-gray-800 mb-2">Дружелюбие</h5>
+                    <p class="text-gray-600">Мы ставим людей на первое место. Наши решения максимально удобны и ориентированы на пользователя.</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Секция Контактов -->
-<section class="container py-5">
-    <h2 class="text-center mb-4">Связаться с нами</h2>
+<section class="max-w-4xl mx-auto py-10">
+    <h2 class="text-3xl font-semibold text-center mb-6">Связаться с нами</h2>
     <form>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="name" class="form-label">Ваше имя</label>
-                <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2">Ваше имя</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Введите ваше имя" required>
             </div>
-            <div class="col-md-6 mb-3">
-                <label for="email" class="form-label">Ваш email</label>
-                <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
+            <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2">Ваш email</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Введите ваш email" required>
             </div>
         </div>
-        <div class="mb-3">
-            <label for="message" class="form-label">Сообщение</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+        <div class="mt-6">
+            <label for="message" class="block text-gray-700 font-medium mb-2">Сообщение</label>
+            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Ваше сообщение" required></textarea>
         </div>
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+        <div class="mt-6">
+            <button type="submit" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600">Отправить сообщение</button>
         </div>
     </form>
 </section>
 
+
     <!-- Футер -->
-    <footer>
-        <p>&copy; 2025 Joyify. Все права защищены.</p>
-        <p><a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="text-center">
+            <p>&copy; 2025 Joyify. Все права защищены.</p>
+            <p><a href="#" class="text-pink-500 hover:text-pink-400">Политика конфиденциальности</a> | <a href="#" class="text-pink-500 hover:text-pink-400">Условия использования</a></p>
+        </div>
     </footer>
 
-    <!-- Подключение Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
