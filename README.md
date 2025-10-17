@@ -20,14 +20,14 @@
 ### 2. Приведите пример кода для одного и того же элемента (например, кнопки) на Bootstrap и на Tailwind из вашей работы. В чем ключевое различие в разметке?
 
 **Кнопка на Bootstrap**:
-
-"<a href="#" class="btn btn-primary btn-lg">Узнать больше</a>"
-
+```html
+<a href="#" class="btn btn-primary btn-lg">Узнать больше</a>
+```
 **Кнопка на Tailwind**:
+```html
+<a href="#" class="bg-pink-500 hover:bg-pink-400 text-white px-6 py-3 rounded-full text-lg">Узнать больше</a>
 
-"<a href="#" class="bg-pink-500 hover:bg-pink-400 text-white px-6 py-3 rounded-full text-lg">Узнать больше</a>
-"
-
+```
 **Ключевое различие**:
 
 * В **Bootstrap** используется готовый класс `btn` для создания кнопки с определенными стилями и поведением. Просто добавив класс, я получаю кнопку с базовыми стилями.
